@@ -1,4 +1,4 @@
-# :mirror_ball: It's a DisCo ParTI :tada: 
+# :mirror_ball: :tada: DisCo ParTI 
 
 ### Repository for reproducing Discrete and Continuous Analysis with Pareto Task Inference (DisCo ParTI) for single cell RNA sequencing data.
 
@@ -9,3 +9,6 @@ This repository contains the code itself, as well as an example runthrough from 
 All custom functions are located in `scripts/functions/`, and can be used à la carte or in the example pipeline presented (`scripts/DisCo_ParTI_runthrough.R`).
 
 Files in `\data\` are not uploaded to github because of size, but can be sent upon request. Two are included for ease of testing cell type proportion plotters. Scripts are able to completely reproduce pancreas figures by downloading fastq.gz files from the HPAP consortium.
+
+Information about python packages + versions used in `scripts/disco_walkthrough` is included in `py_package_info.txt`. R packages required include `Seurat`, [`ParetoTI`](https://github.com/vitkl/ParetoTI), `patchwork`, and the [`tidyverse`](https://www.tidyverse.org/) suite. All R packages were up to date as of 14 April 2025.
+
