@@ -9,6 +9,9 @@
 
 data/*
 
+# don't upload old files
+scripts/retired*
+
 # Session Data files
 .RData
 .RDataTmp

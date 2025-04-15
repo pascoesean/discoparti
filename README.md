@@ -1,9 +1,8 @@
-# DisCo ParTI :mirror_ball::tada: 
+# :mirror_ball: It's a DisCo ParTI :tada: 
 
-Repository for reproducing Discrete and Continuous Analysis with Pareto Task Inference (DisCo ParTI) for single cell RNA sequencing data.
+### Repository for reproducing Discrete and Continuous Analysis with Pareto Task Inference (DisCo ParTI) for single cell RNA sequencing data.
 
-Targeted single cell analyses that combine methods for studying discrete and continuous variance have the power to reveal specific molecular changes in disease. Here, we propose *Dis*crete and *Co*ntinuous analysis through *P*areto *T*ask *I*nference (***DisCo ParTI***), a computational analysis method that pairs cell type proportion exploration with Pareto optimization to reveal coordinated perturbations associated with different cell populations. 
-
+Targeted single cell analyses that combine methods for studying discrete and continuous variance have the power to reveal specific molecular changes in disease. Here, we propose ***Dis***crete and ***Co***ntinuous analysis through ***P***areto ***T***ask ***I***nference (***DisCo ParTI***), a computational analysis method that pairs cell type proportion exploration with Pareto optimization to reveal coordinated perturbations associated with different cell populations. This is based on the [initial ParTI method](https://www.weizmann.ac.il/mcb/alon/download/pareto-task-inference-parti-method), pioneered for biology by the Uri Alon lab ([Korem et al. 2015](http://www.weizmann.ac.il/mcb/UriAlon/sites/mcb.UriAlon/files/korem_2015_-_geometry_of_the_gene_expression_space.pdf)).
 
 This repository contains the code itself, as well as an example runthrough from two datasets from Type I Diabetes patients. DisCo ParTI recapitulates the known ablation of β cells in T1D patients and diseased cells are shown to preferentially resolve near known T1D associated gene signatures, such as HLA-DQ1. Additionally, we find a unique subset of islet-proximal acinar cells to separate by disease phenotype and are thus able to resolve finetuned molecular shifts along with broad correlates of disease.
 
