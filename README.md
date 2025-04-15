@@ -8,7 +8,7 @@ This repository contains the code itself, as well as an example runthrough from 
 
 All custom functions are located in `scripts/functions/`, and can be used à la carte or in the example pipeline presented (`scripts/DisCo_ParTI_runthrough.R`).
 
-Files in `\data\` are not uploaded to github because of size, but can be sent upon request. Two are included for ease of testing cell type proportion plotters. Scripts are able to completely reproduce pancreas figures by downloading fastq.gz files from the HPAP consortium.
+Files in `\data\` are not uploaded to github because of size, but can be sent upon request. Two are included for ease of testing cell type proportion plotters. Scripts are able to completely reproduce pancreas figures by downloading fastq.gz files from the HPAP consortium. Seurat object for the PBMC data from [Honardoost et al., 2024](https://doi.org/10.1186/s13073-024-01300-z) is available under synapse accession code [syn53641849](https://www.synapse.org/#!Synapse:syn53641849).
 
 Information about python packages + versions used in `scripts/disco_walkthrough` is included in `py_package_info.txt`. R packages required include `Seurat`, [`ParetoTI`](https://github.com/vitkl/ParetoTI), `patchwork`, and the [`tidyverse`](https://www.tidyverse.org/) suite. All R packages were up to date as of 14 April 2025.
 
