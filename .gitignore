@@ -2,6 +2,13 @@
 .Rhistory
 .Rapp.history
 
+# don't understand DS_store; don't care
+*.DS_Store
+
+# dont want data; this is too big.
+
+data/*
+
 # Session Data files
 .RData
 .RDataTmp
