@@ -6,6 +6,6 @@ Targeted single cell analyses that combine methods for studying discrete and con
 
 This repository contains the code itself, as well as an example runthrough from two datasets from Type I Diabetes patients. DisCo ParTI recapitulates the known ablation of β cells in T1D patients and diseased cells are shown to preferentially resolve near known T1D associated gene signatures, such as HLA-DQ1. Additionally, we find a unique subset of islet-proximal acinar cells to separate by disease phenotype and are thus able to resolve finetuned molecular shifts along with broad correlates of disease.
 
-All custom functions are located in `scripts/functions/`, and can be used à la carte or in the example pipeline presented.
+All custom functions are located in `scripts/functions/`, and can be used à la carte or in the example pipeline presented (`scripts/DisCo_ParTI_runthrough.R`).
 
-Files in `\data\` are not uploaded to github because of size, but can be sent upon request. Scripts are able to completely reproduce pancreas figures by downloading fastq.gz files from the HPAP consortium.
+Files in `\data\` are not uploaded to github because of size, but can be sent upon request. Two are included for ease of testing cell type proportion plotters. Scripts are able to completely reproduce pancreas figures by downloading fastq.gz files from the HPAP consortium.
