@@ -1,0 +1,352 @@
+---
+title: "DisCo ParTI Polytopes for T1D Data"
+author: "Duy An Le, Sean Pascoe"
+date: today
+format: 
+  html:
+    embed-resources: true
+    toc: true
+    link-external-newwindow: true
+    df-print: paged
+    footnotes-hover: true
+title-block-banner-color: black
+execute:
+  echo: false
+  warning: false
+from: markdown+emoji
+editor_options: 
+  chunk_output_type: console
+---
+::: {.callout-tip icon="false"}
+## Github Repo Link
+
+<https://github.com/pascoesean/discoparti>
+:::
+
+## Overview
+
+Welcome to our polytope document!
+
+Here you can view each polytope from each cell cluster identified by leiden clustering on the
+input data. Each polytope is defined in $n-1$ dimensional space, where $n$ is the number of
+vertices (archetypes) of that shape. For ease of viewing, all polytopes are visualized with
+the first 3 princpal components that define that $n$ dimensional space. Polytope fitting code was
+adapted from the [Uri Alon Lab](https://www.weizmann.ac.il/mcb/alon/download/pareto-task-inference-parti-method) [Korem et al., 2015](http://www.weizmann.ac.il/mcb/UriAlon/sites/mcb.UriAlon/files/korem_2015_-_geometry_of_the_gene_expression_space.pdf).
+
+Mousing over an archetype will give you information about the top 15 genes that were highly
+weighted at that point in space compared to the centroid of the polytope, as well as gene set
+enrichment done on the population of cells nearest to that polytope. We also provide a normalized
+phenotype enrichment score that ranges between -1 and 1 for association with T1D, as well as the 
+z score of this score in the distribution of of enrichment scores that appear with shuffled labels
+at the same points in space. Additional information is available in the Appendix.
+
+
+```{r}
+# load packages ----
+source('parti_output_wrangling.R')
+
+```
+
+## PANCREATIC ISLETS
+
+```{r}
+## ACINAR CELLS --- 
+pc_filepath = "parti_outputs/AcinarCells/lite_pc.csv"
+labels_filepath = "parti_inputs/islets/Acinar Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/AcinarCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/islets/Acinar Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/AcinarCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/AcinarCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/AcinarCells/pea_output.csv'
+title = 'Acinar Cells'
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+
+```{r}
+#| label: alpha cells
+
+## ALPHA CELLS --- 
+pc_filepath = "parti_outputs/AlphaCells/lite_pc.csv"
+labels_filepath = "parti_inputs/islets/Alpha Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/AlphaCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/islets/Alpha Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/AlphaCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/AlphaCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/AlphaCells/pea_output.csv'
+title = 'Alpha Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+
+```{r}
+#| label: alpha cells ghi
+
+## ALPHA ghi CELLS --- 
+pc_filepath = "parti_outputs/AlphaCellsGHi/lite_pc.csv"
+labels_filepath = "parti_inputs/islets/Alpha Cells G_hi/cell_labels.csv"
+enrichment_filepath = "parti_outputs/AlphaCellsGHi/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/islets/Alpha Cells G_hi/gene_names.csv"
+arch_orig_filepath = "parti_outputs/AlphaCellsGHi/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/AlphaCellsGHi/lite_arc.csv"
+pea_filepath = 'pea_outputs/AlphaCellsGHi/pea_output.csv'
+title = 'Alpha Cells, High Glucagon'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+```{r}
+
+
+## BETA CELLS --- 
+pc_filepath = "parti_outputs/BetaCells/full_pc.csv"
+labels_filepath = "parti_inputs/islets/Beta Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/BetaCells/full_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/islets/Beta Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/BetaCells/full_arcOrig.csv"
+arch_filepath = "parti_outputs/BetaCells/full_arc.csv"
+pea_filepath = 'pea_outputs/BetaCells/pea_output.csv'
+title = 'Beta Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+
+```{r}
+#| label: Delta cells
+
+## DELTA CELLS --- 
+pc_filepath = "parti_outputs/DeltaCells/full_pc.csv"
+labels_filepath = "parti_inputs/islets/Delta Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/DeltaCells/full_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/islets/Delta Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/DeltaCells/full_arcOrig.csv"
+arch_filepath = "parti_outputs/DeltaCells/full_arc.csv"
+pea_filepath = "pea_outputs/DeltaCells/pea_output.csv"
+title = 'Delta Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+
+```
+
+
+```{r}
+#| label: Ductal cells
+
+## DUCTAL CELLS --- 
+pc_filepath = "parti_outputs/DuctalCells/lite_pc.csv"
+labels_filepath = "parti_inputs/islets/Ductal Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/DuctalCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/islets/Ductal Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/DuctalCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/DuctalCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/DuctalCells/pea_output.csv'
+title = 'Ductal Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+
+```{r}
+#| label: Endothelial cells
+
+## Endothelial CELLS --- 
+pc_filepath = "parti_outputs/EndothelialCells/lite_pc.csv"
+labels_filepath = "parti_inputs/islets/Endothelial Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/EndothelialCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/islets/Endothelial Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/EndothelialCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/EndothelialCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/EndothelialCells/pea_output.csv'
+title = 'Endothelial Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+## PBMCs
+
+```{r}
+#| label: B cells
+
+## B CELLS --- 
+pc_filepath = "parti_outputs/BCells/lite_pc.csv"
+labels_filepath = "parti_inputs/pbmcs/B Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/BCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/pbmcs/B Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/BCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/BCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/BCells/pea_output.csv'
+title = 'B Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+```{r}
+#| label: CD14+ monocytes
+
+## CD14+ MONOCYTES --- 
+pc_filepath = "parti_outputs/CD14+Monocytes/lite_pc.csv"
+labels_filepath = "parti_inputs/pbmcs/CD14+ monocytes/cell_labels.csv"
+enrichment_filepath = "parti_outputs/CD14+Monocytes/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/pbmcs/CD14+ monocytes/gene_names.csv"
+arch_orig_filepath = "parti_outputs/CD14+Monocytes/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/CD14+Monocytes/lite_arc.csv"
+pea_filepath = 'pea_outputs/CD14+Monocytes/pea_output.csv'
+title = 'CD14+ Monocytes'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+```{r}
+#| label: CD16+ monocytes
+
+## CD16+ MONOCYTES --- 
+pc_filepath = "parti_outputs/CD16+Monocytes/lite_pc.csv"
+labels_filepath = "parti_inputs/pbmcs/CD16+ monocytes/cell_labels.csv"
+enrichment_filepath = "parti_outputs/CD16+Monocytes/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/pbmcs/CD16+ monocytes/gene_names.csv"
+arch_orig_filepath = "parti_outputs/CD16+Monocytes/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/CD16+Monocytes/lite_arc.csv"
+pea_filepath = 'pea_outputs/CD16+Monocytes/pea_output.csv'
+title = 'CD16+ Monocytes'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+```{r}
+#| label: Dendritic cells
+
+## T CELLS --- 
+pc_filepath = "parti_outputs/DendriticCells/lite_pc.csv"
+labels_filepath = "parti_inputs/pbmcs/DCs/cell_labels.csv"
+enrichment_filepath = "parti_outputs/DendriticCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/pbmcs/DCs/gene_names.csv"
+arch_orig_filepath = "parti_outputs/DendriticCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/DendriticCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/DendriticCells/pea_output.csv'
+title = 'Dendritic Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+```{r}
+#| label: ISG hi T cells
+
+## T CELLS --- 
+pc_filepath = "parti_outputs/ISGhiTCells/lite_pc.csv"
+labels_filepath = "parti_inputs/pbmcs/ISGhi T Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/ISGhiTCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/pbmcs/ISGhi T Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/ISGhiTCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/ISGhiTCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/ISGhiTCells/pea_output.csv'
+title = 'T Cells, high IFN signaling'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+```{r}
+#| label: NK cells
+
+## T CELLS --- 
+pc_filepath = "parti_outputs/NKCells/lite_pc.csv"
+labels_filepath = "parti_inputs/pbmcs/NK cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/NKCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/pbmcs/NK cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/NKCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/NKCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/NKCells/pea_output.csv'
+title = 'NK Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+```{r}
+#| label: NKT cells
+
+## T CELLS --- 
+pc_filepath = "parti_outputs/NKTCells/lite_pc.csv"
+labels_filepath = "parti_inputs/pbmcs/NKT Cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/NKTCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/pbmcs/NKT Cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/NKTCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/NKTCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/NKTCells/pea_output.csv'
+title = 'NKT Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+```{r}
+#| label: t cells
+
+## T CELLS --- 
+pc_filepath = "parti_outputs/TCells/lite_pc.csv"
+labels_filepath = "parti_inputs/pbmcs/T cells/cell_labels.csv"
+enrichment_filepath = "parti_outputs/TCells/lite_continuous_significant.csv"
+gene_names_filepath = "parti_inputs/pbmcs/T cells/gene_names.csv"
+arch_orig_filepath = "parti_outputs/TCells/lite_arcOrig.csv"
+arch_filepath = "parti_outputs/TCells/lite_arc.csv"
+pea_filepath = 'pea_outputs/TCells/pea_output.csv'
+title = 'T Cells'
+
+
+plot_parti(pc_filepath, labels_filepath, enrichment_filepath,
+           gene_names_filepath, arch_orig_filepath, arch_filepath, pea_filepath, title)
+```
+
+
+## Appendix
+
+### Data Sources
+
+- Pancreatic islet data was downloaded from [PANC-DB](https://hpap.pmacs.upenn.edu/). 22 Adults
+were chosen to create a cohort of age and sex matched healthy controls.
+
+- PBMC data was derived from [Honardoost et al., 2024](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-024-01300-z), and downloaded from [synapse.org](https://www.synapse.org/Synapse:syn53641849).
+
+### Phenotype Enrichment Analysis
+
+To calculate the enrichment of each phenotype at each archetype throughout the reduced dimensional
+space that the polytopes are defined in, we derived a normalized enrichment score as the max
+deviation from zero calculated from a running score based on euclidean distance of each point (cell) to each archetype. For each archetype, the process was as follows:
+
+1. Rank all cells from shortest to longest euclidean distance to that archetype
+
+2. For each cell, add $s_{hit}$ to the running score if the cell is in the phenotype of interest. Otherwise, subtract $s_{miss}$, where $s_{hit}$ is the absolute value of the mean-centered distance to that archetype scaled by the total score of observations in that phenotype, and $s_{miss}$ is one over the number of observations not in that phenotype, i.e.
+
+$$ s_{hit} = \frac{|d_{i}|}{D_p} \text{, where } D_p = \sum_{i=1}^{p}{|d_i|}$$
+$$ s_{miss} = \frac{1}{N_{\neg p}}$$
+Here, $D_p$ is the summed absolute value of the mean centered distances for all $p$ values in the phenotype of interest, and $N_\neg p$ is the number of observations that are not in the phenotype of interest.
+
+
+3. Report maximum deviation from zero of the running score as the normalized enrichment score.
