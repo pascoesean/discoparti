@@ -10,3 +10,4 @@ be necessary for your data:
 3. `titrate_clusters_dotplot.py`: creates dotplots of different clustering resolutions to assess
 which is best for discrete chunking
 4. `investigate_celltypes.py`: Look at celltypes that have been assigned manually, compare to orginally published (if applicable)
+5. `parti_prep.py`: Prepare files for ParTI analysis in MATLAB (implemented in `parti/polytope_fitting.m`)
